@@ -1,7 +1,7 @@
 // jquery.observe_field.js
 //
 
-jQuery.fn.observe_field = function(frequency, callback) {
+jjQuery.fn.observe_field = function(frequency, callback) {
 
   return this.each(function(){
     var element = $(this);
@@ -14,13 +14,19 @@ jQuery.fn.observe_field = function(frequency, callback) {
         element.map(callback); // invokes the callback on the element
       }
     };
-    chk();
+
     frequency = frequency * 1000; // translate to milliseconds
-    var ti = setInterval(chk, frequency);
+
+		element.bind('blur',function() { // stop on focus lost
+			this.ti && clearInterval(this.ti);
+    });
+
+    this.ti = setInterval(chk, frequency);
+
     // reset counter after user interaction
     element.bind('keyup', function() {
-      ti && clearInterval(ti);
-      ti = setInterval(chk, frequency);
+      this.ti && clearInterval(this.ti);
+      this.ti = setInterval(chk, frequency);
     });
   });
 
