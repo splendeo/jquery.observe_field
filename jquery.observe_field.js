@@ -1,5 +1,4 @@
 // jquery.observe_field.js
-//
 
 jQuery.fn.observe_field = function(frequency, callback) {
 
@@ -7,21 +6,27 @@ jQuery.fn.observe_field = function(frequency, callback) {
     var $this = $(this);
     var prev = $this.val();
 
-    var chk = function() {
+    var check = function() {
       var val = $this.val();
       if(prev != val){
         prev = val;
         $this.map(callback); // invokes the callback on $this
       }
     };
-    chk();
+
+    var reset = function() {
+      if(ti){
+        clearInterval(ti);
+        ti = setInterval(check, frequency);
+      }
+    };
+
+    check();
     frequency = frequency * 1000; // translate to milliseconds
-    var ti = setInterval(chk, frequency);
+    var ti = setInterval(check, frequency); // invoke check periodically
+
     // reset counter after user interaction
-    $this.bind('keyup', function() {
-      ti && clearInterval(ti);
-      ti = setInterval(chk, frequency);
-    });
+    $this.bind('keyup mousemove', reset); //mousemove is for selects
   });
 
 };

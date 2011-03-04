@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery observe_field</title>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../jquery.observe_field.js"></script>
+
+  <script type="text/javascript">
+
+  $(function() {
+    // Executes a callback detecting changes with a frequency of 1 second
+    $("input").observe_field(1, function( ) {
+      alert('Change observed! new value: ' + this.value );
+    });
+    
+    $("select").observe_field(1, function( ) {
+      alert('Change observed! new value: ' + this.value );
+    });
+  });
+
+  </script>
+</head>
+<body>
+
+  <h1>
+  jQuery observe_field
+  </h1>
+
+  <form>
+
+    <p>
+      <label for="item1">Item 1:</label>
+      <input type="text" id="item1" value="" />
+    </p>
+    <p>
+      <label for="item2">Item 2:</label>
+      <select id="item2" >
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </p>
+
+  </form>
+
+</body>
+</html>
