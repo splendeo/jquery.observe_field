@@ -30,7 +30,7 @@
       var ti = setInterval(check, frequency); // invoke check periodically
 
       // reset counter after user interaction
-      $this.bind('keyup mousemove', reset); //mousemove is for selects
+      $this.bind('keyup click mousemove', reset); //mousemove is for selects
     });
 
   };
