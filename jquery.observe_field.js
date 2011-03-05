@@ -5,6 +5,8 @@
 
   jQuery.fn.observe_field = function(frequency, callback) {
 
+    frequency = frequency * 1000; // translate to milliseconds
+
     return this.each(function(){
       var $this = $(this);
       var prev = $this.val();
@@ -25,7 +27,6 @@
       };
 
       check();
-      frequency = frequency * 1000; // translate to milliseconds
       var ti = setInterval(check, frequency); // invoke check periodically
 
       // reset counter after user interaction

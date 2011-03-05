@@ -10,11 +10,7 @@
 
   $(function() {
     // Executes a callback detecting changes with a frequency of 1 second
-    $("input").observe_field(1, function( ) {
-      alert('Change observed! new value: ' + this.value );
-    });
-    
-    $("select").observe_field(1, function( ) {
+    $("input,select").observe_field(1, function( ) {
       alert('Change observed! new value: ' + this.value );
     });
   });
