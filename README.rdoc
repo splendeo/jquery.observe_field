@@ -18,7 +18,10 @@ Assuming that you copied it on /javascripts/:
 
     <script src="/javascripts/jquery.observe_field.js" type="text/javascript"></script>
 
-
 == Example
 
 See example.html
+
+== License
+
+jquery.observe_field is licensed under the MIT license:
