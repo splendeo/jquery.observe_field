@@ -12,11 +12,20 @@
       var prev = $this.val();
 
       var check = function() {
+        if(removed()){ // if removed clear the interval and don't fire the callback
+          if(ti) clearInterval(ti);
+          return;
+        }
+
         var val = $this.val();
         if(prev != val){
           prev = val;
           $this.map(callback); // invokes the callback on $this
         }
+      };
+
+      var removed = function() {
+        return $this.closest('html').length == 0
       };
 
       var reset = function() {
@@ -36,4 +45,3 @@
   };
 
 })( jQuery );
-
