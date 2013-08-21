@@ -10,6 +10,7 @@
     return this.each(function(){
       var $this = $(this);
       var prev = $this.val();
+      var prevChecked = $this.prop('checked');
 
       var check = function() {
         if(removed()){ // if removed clear the interval and don't fire the callback
@@ -18,8 +19,10 @@
         }
 
         var val = $this.val();
-        if(prev != val){
+        var checked = $this.prop('checked');
+        if(prev != val || checked != prevChecked ){
           prev = val;
+          prevChecked = checked;
           $this.map(callback); // invokes the callback on $this
         }
       };
