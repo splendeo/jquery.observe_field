@@ -1,0 +1,21 @@
+{
+  "name": "jquery.observe_field",
+  "main": "jquery.observe_field.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/splendeo/jquery.observe_field",
+  "authors": "Splendeo Innovación, SL",
+  "description": "a way to observe form fields on a given frequency",
+  "keywords": [
+    "jquery",
+    "observe",
+    "field"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
