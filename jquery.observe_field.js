@@ -10,7 +10,7 @@
 
     return this.each(function() {
       var $this = $(this);
-      var prev = $this.val();
+      var prev = $.isArray($this.val()) ? $this.val().toString() : $this.val();
       var prevChecked = $this.prop('checked');
 
       var check = function() {
@@ -21,7 +21,7 @@
           return;
         }
 
-        var val = $this.val();
+        var val = $.isArray($this.val()) ? $this.val().toString() : $this.val();
         var checked = $this.prop('checked');
         if (prev != val || checked != prevChecked) {
           prev = val;
